@@ -1,0 +1,64 @@
+<table style="width:100%">
+    <tr>
+        <td>
+            <p style="text-align: center; margin-left: 10px;">
+                <img height="50px" src="{!quote.Proposal_Distributor_Logo_Location__c}" />
+            </p>
+        </td>
+    </tr>
+</table>
+<p>&#160;</p>
+<table style="width:100%; font-family:roboto,sans serif; font-size:10px">
+    <tr>
+        <td style="width:50%; border:1px solid black; padding:5px">
+            <p style="text-align:left">
+                <strong>Bill To:</strong><br />
+                {!quote.SBQQ__BillingName__c}<br />
+                {!quote.SBQQ__BillingStreet__c}<br />
+                {!quote.SBQQ__BillingCity__c}, {!quote.SBQQ__BillingState__c} {!quote.SBQQ__BillingPostalCode__c}
+            </p>
+        </td>
+        <td style="width:50%; border:1px solid black; padding:5px">
+            <p style="text-align:left">
+                <strong>Ship To:</strong><br />
+                {!quote.SBQQ__ShippingName__c}<br />
+                {!quote.SBQQ__ShippingStreet__c}<br />
+                {!quote.SBQQ__ShippingCity__c}, {!quote.SBQQ__ShippingState__c} {!quote.SBQQ__ShippingPostalCode__c}
+            </p>
+        </td>
+    </tr>
+</table>
+<p>&#160;</p>
+<table style="width:100%; font-family:roboto,sans serif; font-size:10px">
+    <tr>
+        <td style="width:50%; border:1px solid black; padding:5px">
+            <p style="text-align:left">
+                <strong>Quote Number:</strong> {!quote.Name}<br />
+                <strong>Quote Owner:</strong> {!quote.Proposal_Quote_Owner_Name__c}<br />
+                <strong>PO Number:</strong> <br />
+                <strong>Account:</strong> {!quote.Account_Name__c}<br />
+                <strong>Contact Name:</strong> {!primaryContact.Name}<br />
+                <strong>Contact Phone:</strong> {!primaryContact.Phone}<br />
+                <strong>Contact Email:</strong> {!primaryContact.Email}<br />
+            </p>
+        </td>
+        <td style="width:50%; border:1px solid black; padding:5px">
+            <p style="text-align:left">
+                <strong>Payment Terms:</strong> {!quote.SBQQ__PaymentTerms__c}<br />
+                <strong>Shipping Information:</strong> {!quote.Proposal_Delivery__c} ({!quote.Shipping_Terms__c} {!quote.Shipping_Term_Location_or_Other__c}) <br />
+                <strong>Freight Included?</strong> <br />
+                <strong>Delivery Included?</strong> <br />
+                <strong>Tax Exempt?</strong> <br />
+            </p>
+        </td>
+    </tr>
+</table>
+<table style="width:100%; font-family:roboto,sans serif; font-size:10px">
+    <tr>
+        <td style="border:1px solid black; padding:5px">
+            <p style="text-align:left">
+                <strong>Notes:</strong> {!quote.SBQQ__Notes__c}
+            </p>
+        </td>
+    </tr>
+</table>

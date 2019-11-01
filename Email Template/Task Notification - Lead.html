@@ -1,0 +1,16 @@
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">
+    <p >
+        The following task has been assigned to you:
+    </p>
+    <p>
+        Subject: {!Task.Subject}<br>
+        Lead: {!Lead.Name}<br>
+        Company: {!Lead.Company}<br>
+        Title: {!Lead.Title}<br>
+        Email: {!Lead.Email}<br>
+        Comments: {!Task.Description}
+    </p>
+    <p>
+        To view this Task, click on the following link: <a href="{!Task.Base_URL__c}{!Task.Id}">{!Task.Base_URL__c}{!Task.Id}</a>
+    </p>
+</body>

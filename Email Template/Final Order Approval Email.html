@@ -1,0 +1,27 @@
+<div style="font-family: arial;">
+    <img height="50" src="https://www.fs-elliott.com/Files/User/FSE-Logo-optimized.png" alt="https://fselliott--c.na46.content.force.com/servlet/servlet.ImageServer?id=015i00000037gtp&oid=00Di0000000XmEH&lastMod=1405006358000">
+    <br>
+    The following Order has been approved.<br>
+    <br> 
+    Opportunity: {!Order.Opportunity} ({!Order.Opportunity_Number__c})<br>
+    Quote Number: {!Order.SBQQ__Quote__c}<br>
+    Scope: {!Order.Order_Scope__c}<br>
+    Package Type: {!Order.Package_Type__c}<br>
+    Sales Order Number: {!Order.ERP_SO_Number__c}<br>
+    Factory Order Number(s): {!Order.Factory_Order_s__c}<br>
+    Primary Sales Contact: {!Opportunity.FSE_Sales_Lead__c}<br>
+    Primary Marketing Contact: <br>
+    Project Manager: <br>
+    Project Engineer: <br>
+    Controls Engineer: <br>
+    Design Engineer: <br>
+    Quality Engineer: <br>
+    <br>
+    Commercial Notes: {!Order.Commercial_Notes__c}<br>
+    Technical Notes: {!Order.Technical_Notes__c}<br>
+    Folder Path: <a href="{!Order.Folder_Path__c}">{!Order.Folder_Path__c}</a><br>
+    <br>
+    Approval Comments: {!ApprovalRequest.Comments}<br>
+    <br>
+    You can access the Order via the following link: <a href="{!Order.Base_URL__c}{!Order.Id}">{!Order.Base_URL__c}{!Order.Id}</a>
+</div>

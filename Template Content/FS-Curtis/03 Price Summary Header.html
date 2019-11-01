@@ -1,0 +1,52 @@
+<table style="width:100%;">
+    <tbody>
+        <tr>
+            <td style="width:50%;">
+                <p style="text-align: left; margin-left: 10px;">
+                    <img height="45px" src="{!quote.Proposal_Distributor_Logo_Location__c}" />
+                </p>
+            </td>
+            <td style="width:50%;">
+                <p style="text-align: right; margin-right: 10px;">
+                    <img height="45px" src="https://us.fscurtis.com/wp-content/uploads/post/4079/sfdc-fsc-logo-e1550686496428.png" />
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&#160;</p>
+<p>&#160;</p>   
+
+<table style="width:100%; font-family:roboto,sans serif">
+    <tbody>
+        <tr>
+            <td style="width:100%;">
+                <p style="text-align: left; margin-left: 10px;">
+                    <strong>Quote #: </strong>{!quote.Name}<br />
+                    <strong>Date: </strong>{!quote.CreatedDate}<br />
+                    <strong>Expires On: </strong>{!quote.SBQQ__ExpirationDate__c}<br />
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p>&#160;</p>
+<p>&#160;</p>
+
+<table style="width:100%; font-family:roboto,sans serif">
+    <tbody>
+        <tr>
+            <td style="width:100%;">
+                <p style="text-align: left; font-size:20px; margin-left: 10px;">
+                    <strong>Price Summary</strong><br />
+                </p>
+                <p>&#160;</p>
+                <p style="text-align: left; margin-left: 10px;">
+                    {!quote.SBQQ__Introduction__c}<br />
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>

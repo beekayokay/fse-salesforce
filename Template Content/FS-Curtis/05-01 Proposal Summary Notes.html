@@ -1,0 +1,26 @@
+<p>&#160;</p>
+
+<table style="width:100%; font-family:roboto,sans serif">
+    <tbody>
+        <tr>
+            <td style="width:100%;">
+                <p style="text-align: left; font-size:20px; margin-left: 10px;">
+                    <strong>Proposal Summary Notes</strong><br />
+                </p>
+                <p>&#160;</p>
+                <p style="text-align: left; margin-left: 10px;">
+                    <ul>
+                        <li>All prices are listed in US Dollars (USD)</li>
+                        <li>Quote validity is 60 days from issuance</li>
+                        <li>Payment Terms are {!quote.Proposal_Payment_Terms__c}</li>
+                        <li>Progress payments are required for orders exceeding $100,000 USD</li>
+                        <li>Delivery is {!quote.Proposal_Delivery__c} after receipt of acceptable purchase order, {!quote.Shipping_Terms__c} - {!quote.Shipping_Term_Location_or_Other__c}</li>
+                    </ul>
+                    <br/>
+                    <br/>
+                    {!quote.SBQQ__Notes__c}
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>

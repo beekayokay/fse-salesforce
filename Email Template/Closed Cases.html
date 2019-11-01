@@ -1,0 +1,36 @@
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    The following Case has been closed:
+</p>
+
+<ul style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    <li><strong>Case Number:</strong> {!Case.CaseNumber}</li>
+    <li><strong>Account:</strong> {!Case.Account}</li>
+    <li><strong>Opportunity:</strong> {!Case.Opportunity__c}</li>
+    <li><strong>Opportunity Number:</strong> {!Case.Opportunity_Number__c}</li>
+</ul>
+
+<ul style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    <li><strong>Case Subject:</strong> {!Case.Subject}</li>
+    <li><strong>Case Type:</strong> {!Case.Type}</li>
+    <li><strong>Case Scope:</strong> {!Case.Scope__c}</li>
+</ul>
+
+<ul style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    <li><strong>Priority:</strong> {!Case.Priority}</li>
+</ul>
+
+<ul style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    <li><strong>Case Requester:</strong> {!Case.Case_Requester__c}</li>
+</ul>
+
+<ul style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    <li><strong>Description:</strong> {!Case.Description}</li>
+</ul>
+
+<ul style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    <li><strong>Solution:</strong> {!Case.Solution_Subject} - {!Case.Solution_Description}</li>
+</ul>
+
+<p style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt">
+    To view the Case, go to this link: {!Case.Base_URL__c}{!Case.Id}
+</p>
