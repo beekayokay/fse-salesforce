@@ -1,0 +1,11 @@
+<div style="font-family: arial;">
+    <img height="50" src="https://www.fs-elliott.com/Files/User/FSE-Logo-optimized.png" alt="https://fselliott--c.na46.content.force.com/servlet/servlet.ImageServer?id=015i00000037gtp&oid=00Di0000000XmEH&lastMod=1405006358000">
+    <br>
+    <br>
+    <br>
+    {!Opportunity.LastModifiedBy} has updated {!Opportunity.Name} ({!Opportunity.Opportunity_Number__c}) from {!Opportunity.Previous_Sales_Probability__c} to {!Opportunity.Sales_Probability__c}.<br>
+    <br>
+    Please use the following link to view the Opportunity:<br>
+    <a href = {!Opportunity.Base_URL__c}/{!Opportunity.Id}>{!Opportunity.Base_URL__c}/{!Opportunity.Id}</a><br>
+    <br>
+</div>
