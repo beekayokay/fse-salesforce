@@ -1,0 +1,388 @@
+<apex:page standardController="Factory_Order__c">
+  <style type="text/css">
+    input:disabled {
+      border: none;
+      background: transparent;
+      color: black;
+    }
+    input.fonumber {
+      border: none;
+      background: transparent;
+      color: black;
+    }
+    input.fonumber:focus{
+      outline: 0;
+    }
+  </style>
+  <script type="text/javascript" src="/soap/ajax/20.0/connection.js"></script>
+  <script>
+
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+
+    function updateYear()
+    {
+      var datesold = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.datesold}').value;
+      var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+      var txtYear = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.yearSectionItem.year}');
+      var translation = "";
+
+      if (datesold != "")
+      {
+
+        //Evaluate Decade
+        var decade = new Date(datesold).getYear().toString().substring(1,2);
+        switch (decade)
+        {
+          case "1":
+            translation="B";
+            break;
+          case "2":
+            translation="C";
+            break;
+          case "3":
+            translation="D";
+            break;
+          case "4":
+            translation="E";
+            break;
+        }
+
+        var year = new Date(datesold).getYear().toString().substring(2,3);
+        translation += year;
+        txtYear.value=translation;
+      }
+      else
+      {
+        translation="__";
+        txtYear.value="";
+      }
+
+      fonumber.value=translation+fonumber.value.substring(2,9)
+
+    }
+
+    function updatePackagingLocation()
+    {
+      var packaginglocation = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.packaginglocation}').value;
+      var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+      var translation = "";
+
+      switch (packaginglocation)
+      {
+        case "Export":
+          translation="E";
+          break;
+        case "Germany":
+          translation="G";
+          break;
+        case "Shanghai":
+          translation="S";
+          break;
+        case "Taipei":
+          translation="T";
+          break;
+        case "India":
+          translation="M";
+          break;
+        case "Saudi JV":
+          translation="K";
+          break;
+        case "Jeannette":
+          translation="J";
+          break;
+        case "":
+          translation="_";
+          break;
+      }
+
+      fonumber.value=fonumber.value.substring(0,2)+translation+fonumber.value.substring(3,9)
+    }
+
+    function updateFrame()
+    {
+      var frame = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.frame}').value;
+      var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+      var translation = "";
+
+      switch (frame.toUpperCase())
+      {
+        case "Q":
+          translation="A";
+          break;
+        case "QR":
+          translation="A";
+          break;
+        case "P305":
+          translation="B";
+          break;
+        case "S1":
+          translation="C";
+          break;
+        case "SA":
+          translation="D";
+          break;
+        case "A":
+          translation="E";
+          break;
+        case "DE":
+          translation="F";
+          break;
+        case "DF":
+          translation="G";
+          break;
+        case "A1":
+          translation="H";
+          break;
+        case "B":
+          translation="K";
+          break;
+        case "B1":
+          translation="K";
+          break;
+        case "BH":
+          translation="L";
+          break;
+        case "C":
+          translation="M";
+          break;
+        case "CH":
+          translation="N";
+          break;
+        case "D":
+          translation="P";
+          break;
+        case "EH":
+          translation="Q";
+          break;
+        case "DH":
+          translation="R";
+          break;
+        case "P200":
+          translation="S";
+          break;
+        case "P300+":
+          translation="T";
+          break;
+        case "P400+":
+          translation="U";
+          break;
+        case "P500+":
+          translation="V";
+          break;
+        case "P600+":
+          translation="W";
+          break;
+        case "P700+":
+          translation="X";
+          break;
+        case "P800+":
+          translation="Y";
+          break;
+        case "P1000+":
+          translation="Z";
+          break;
+        case "":
+          translation="_";
+          break;
+        default:
+          translation="_";
+          break;
+      }
+
+      fonumber.value=fonumber.value.substring(0,3)+translation+fonumber.value.substring(4,9)
+    }
+
+    function updateDriverFrequency()
+    {
+      var frequency = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.frequency}').value;
+      var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+      var translation = "";
+
+      switch (frequency)
+      {
+        case "50":
+          translation="1";
+          break;
+        case "60":
+          translation="2";
+          break;
+        case "":
+          translation="_";
+          break;
+      }
+
+      fonumber.value=fonumber.value.substring(0,4)+translation+fonumber.value.substring(5,9)
+    }
+
+    function updateContract()
+    {
+      var contract = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.contract}').value;
+      var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+      var translation = "";
+
+      switch (contract)
+      {
+        case "Export":
+          translation="E";
+          break;
+        case "Germany":
+          translation="G";
+          break;
+        case "Shanghai":
+          translation="S";
+          break;
+        case "Taipei":
+          translation="T";
+          break;
+        case "India":
+          translation="M";
+          break;
+        case "Saudi JV":
+          translation="K";
+          break;
+        case "Jeannette":
+          translation="J";
+          break;
+        case "":
+          translation="_";
+          break;
+      }
+
+      fonumber.value=fonumber.value.substring(0,5)+translation+fonumber.value.substring(6,9)
+    }
+
+    function updateSequential()
+    {
+      var datesold = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.datesold}').value;
+      var packaginglocation = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.packaginglocation}').value;
+      var frame = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.frame}').value;
+      var frequency = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.frequency}').value;
+      var contract = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.contract}').value;
+
+      var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+
+      //Don't get a new sequential unless all required fields are filled out
+      if (datesold != "" && packaginglocation != "" && frame != "" && frequency != "" && contract != "")
+      {
+
+        if(fonumber.value.indexOf("_") < 6 && fonumber.value.indexOf("_") != -1)
+        {
+          alert('Please select a valid Frame.');
+          return false;
+        }
+
+
+        var txtYear = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.yearSectionItem.year}');
+        var sequentialsByYear = sforce.connection.query("SELECT MAX(Sequential__c) FROM Factory_Order__c WHERE Year__c = '" + txtYear.value + "' GROUP BY Year__c");
+
+        var txtSequential = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.sequentialSectionItem.sequential}');
+
+        var intSequential = 1;
+        if (sequentialsByYear.size > 0)
+        {
+          var records = sequentialsByYear.getArray('records');
+          intSequential = parseInt(records[0].expr0) + 1;
+        }
+        txtSequential.value = intSequential;
+        fonumber.value=fonumber.value.substring(0,6)+pad(intSequential,3,"0");
+
+        if(fonumber.value.indexOf("_") != -1)
+        {
+          alert('Oops! We ran into a problem while generating your Factory Order Number. Please contact Andrew Gall (x3207) for assistance.');
+          return false;
+        }
+
+        fonumber.disabled=false;
+        return true;
+      }
+
+      //alert('You must fill out all required fields before a Factory Order Number can be generated.');
+      fonumber.disabled=false;
+      return true;
+    }
+
+    function pad(n, width, z) {
+      z = z || '0';
+      n = n + '';
+      return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+    }
+
+  </script>
+
+  <apex:sectionHeader title="Factory Orders" subtitle="New Factory Order"/>
+
+  <apex:form id="frmAddNewFactoryOrder">
+    <apex:pageBlock id="thePageBlock" title="Factory Order Edit">
+      <apex:pageBlockSection id="theSection" >
+
+         <apex:inputField value="{!Factory_Order__c.Name}" id="fonumber" styleClass="fonumber"/>
+         <apex:inputField value="{!Factory_Order__c.Frame__c}" id="frame" required="true" onChange="updateFrame();"/>
+
+         <apex:inputField value="{!Factory_Order__c.Order__c}" required="true" id="order"/>
+         <apex:inputField value="{!Factory_Order__c.Driver_Frequency__c}" id="frequency" required="true" onChange="updateDriverFrequency();"/>
+
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+         <apex:inputField value="{!Factory_Order__c.Airend_Assembly_Location__c}" required="true" id="assemblylocation"/>
+
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+         <apex:inputField value="{!Factory_Order__c.Packaging_Location__c}" required="true" id="packaginglocation" onChange="updatePackagingLocation();"/>
+
+         <apex:inputField value="{!Factory_Order__c.Number_of_Units__c}" id="numberofunits" required="true"/>
+         <apex:inputField value="{!Factory_Order__c.Contract_Warranty__c}" id="contract" required="true" onChange="updateContract();"/>
+
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+
+         <apex:inputField value="{!Factory_Order__c.Compressor_Total__c}" id="unittotal" required="true"/>
+         <apex:inputField value="{!Factory_Order__c.Date_Sold__c}" id="datesold" required="true" onChange="updateYear();"/>
+
+         <apex:inputField value="{!Factory_Order__c.Spare_Total__c}" id="sparetotal" required="true"/>
+         <apex:inputField value="{!Factory_Order__c.Estimated_Ship_Date__c}" id="estimatedinstalldate" required="true"/>
+
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+
+         <apex:inputField value="{!Factory_Order__c.Projected_Compressor_Cost__c}" id="projcompcost" required="true"/>
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+
+         <apex:pageBlockSectionItem id="yearSectionItem">
+           <apex:inputField value="{!Factory_Order__c.Year__c}" id="year" style="display:none;"/>
+         </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="sequentialSectionItem">
+           <apex:inputField value="{!Factory_Order__c.Sequential__c}" id="sequential" style="display:none;"/>
+         </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="statusSectionItem">
+           <apex:inputField value="{!Factory_Order__c.Status__c}" id="status" style="display:none;"/>
+         </apex:pageBlockSectionItem>
+         <apex:pageBlockSectionItem id="typeSectionItem">
+           <apex:inputField value="{!Factory_Order__c.Type__c}" id="type" style="display:none;"/>
+         </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Generate Factory Order Number" onClick="return updateSequential(); return false;"/>
+        <apex:commandButton action="{!cancel}" value="Cancel" immediate="true"/>
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+  <script>
+    var fonumber = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.fonumber}');
+    if (fonumber.value == "")
+    {
+      fonumber.value = '_________';
+    }
+    else
+    {
+      fonumber.value = fonumber.value.substring(0,6) + '___';
+    }
+    fonumber.disabled=true;
+
+    var txtstatus = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.statusSectionItem.status}');
+    txtstatus.value = 'In-Progress';
+    var type = document.getElementById('{!$Component.frmAddNewFactoryOrder.thePageBlock.theSection.typeSectionItem.type}');
+    type.value = 'Compressor';
+
+  </script>
+</apex:page>

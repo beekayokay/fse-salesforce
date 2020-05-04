@@ -1,0 +1,18 @@
+<apex:page standardController="Factory_Order__c">
+  <apex:sectionHeader title="Factory Orders" subtitle="New Factory Order"/>
+  <apex:form id="frmAddNewFactoryOrder">
+    <apex:pageBlock id="thePageBlock" title="Factory Order Edit">
+      <apex:pageBlockSection id="theSection" >
+        <apex:inputField value="{!Factory_Order__c.Name}" label="Description" required="true" id="fonumber"/>
+        <apex:inputField value="{!Factory_Order__c.Order__c}" required="true" id="order"/>
+        <apex:inputField value="{!Factory_Order__c.Type__c}"  required="true" id="type"/>
+        <apex:inputField value="{!Factory_Order__c.Number_of_Units__c}" id="numberofunits" required="true"/>
+        <apex:inputField value="{!Factory_Order__c.Other_Total__c}" required="true" id="othertotal"/>
+      </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel" immediate="true"/>
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
