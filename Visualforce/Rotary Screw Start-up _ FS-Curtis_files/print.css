@@ -1,0 +1,13 @@
+#mainNav,
+#rightFoot,
+.tc-red-bar,
+.containedForm,
+#headerFilters,
+#slideshowWrapper,
+#bannerBreadcrumbs,
+#footerWidgetsWrapper	{display: none;}
+
+#header				{background: #ccc;}
+#header #logo		{margin: 0 auto;}
+#bannerText			{color: #000;}
+#mainBannerWrapper	{border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}

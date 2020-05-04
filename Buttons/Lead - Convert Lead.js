@@ -53,4 +53,4 @@ else if(
   distributorFilled
 );}
 //GO TO LEAD CONVERSION PAGE IF ALL IS GOOD
-else {window.top.location.href = "/lead/leadconvert.jsp?retURL=%2F{!Lead.Id}&id={!Lead.Id}";}
+else {window.top.location.href = "{!Lead.Lead_Base_URL__c}/lead/leadconvert.jsp?retURL=%2F{!Lead.Id}&id={!Lead.Id}";}
