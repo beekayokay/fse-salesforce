@@ -8,6 +8,7 @@
         <apex:inputField value="{!Factory_Order__c.Type__c}"  required="true" id="type"/>
         <apex:inputField value="{!Factory_Order__c.Number_of_Units__c}" id="numberofunits" required="true"/>
         <apex:inputField value="{!Factory_Order__c.Other_Total__c}" required="true" id="othertotal"/>
+        <apex:inputField value="{!Factory_Order__c.Packaging_Location__c}" required="true" id="packaginglocation"/>
       </apex:pageBlockSection>
         <apex:pageBlockButtons >
         <apex:commandButton action="{!save}" value="Save"/>
